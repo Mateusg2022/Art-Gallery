@@ -4,3 +4,5 @@ Aplicação de algoritmos relacionados a geometria computacional como entrega do
 Para acessar a página do GitHub Pages usar o link:
 
 https://mateusg2022.github.io/Polygon/
+
+![image](https://github.com/user-attachments/assets/9a4ce52b-66b8-42e5-8cfc-fbd78389da0c)
