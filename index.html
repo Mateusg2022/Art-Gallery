@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polygon Animation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1 style="padding-right: 10px;">Problema da Galeria de Arte</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">O Trabalho</a></li>
+                <li><a href="#triangulation">Triangulação</a></li>
+                <li><a href="#coloring">Coloração</a></li>
+                <li><a href="#cameras">Câmeras</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>Sobre o trabalho</h2>
+            <p>Esse projeto tem como objetivo resolver o problema da Galeria de Arte, fortemente conhecido na
+                computação pela sua resolução através dos algoritmos de
+                triangulação de polígonos e de 3-coloração. O trabalho foi feito em python com a utilização da biblioteca "plotly"
+                para aplicar animações para mostrar de maneira as iterações e etapas da resolução do problema.
+            </p>
+
+            <h2>O que é o problema da galeria de arte?</h2>
+
+            O problema da galeria de arte foi pensado pelo matemático estadunidense Victor Klee e apresentado a um outro
+            matemático, Václav (Vašek) Chvátal (que conseguiu provar que é possível resolver o problema) em 1973.
+
+            <div class="explain" style="padding-top: 10px;">
+                <div id="explainImages">
+                    <div style="padding: 10px;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Victor_Klee_MFO.jpg?20090523000437"
+                            alt="Imagem de uma galeria de arte" style="width: 240px; border: 1px solid black; border-radius: 10px;" height="310px">
+                        <p><i>Victor Klee</i></p>
+                    </div>
+                    <div style="padding: 10px;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/85/Va%C5%A1ek_Chv%C3%A1tal_in_2020.jpg"
+                            alt="Imagem de uma galeria de arte" style="width: 240px; border: 1px solid black; border-radius: 10px;" height="310px">
+                        <p><i>Václav (Vašek) Chvátal</i></p>
+                    </div>
+                </div>
+
+                <div style="padding: 10px; flex: 1;">
+                    <p>O problema pode ser enunciado de maneira geral
+                        da seguinte forma: <br><br>
+                        Imagine uma galeria de arte representada por um polígono simples (aquele em que nenhuma das retas se cruzam, 
+                        ou seja, não há um ponto de interseção entre dois lados não consecutivos). A tarefa enunciada é a de determinar o número mínimo de guardas/câmeras que devem ser posicionados
+                        em pontos estratégicos da galeria para garantir que cada ponto do interior da galeria seja visível por pelo menos um guarda.
+
+                        <br><br>
+                        Principais pontos do problema:<br><br>
+                        <b>Visibilidade:</b> Uma câmera posicionada em um ponto dentro do polígono pode ver outro ponto dentro
+                        do polígono se a linha reta que conecta esses dois pontos não cruza nenhuma borda do polígono.
+
+                        <br><br>
+                        <b>Objetivo:</b> Determinar o número mínimo de câmeras necessárias e suas posições para cobrir toda a
+                        região da galeria (polígono).
+                        <br><br>
+
+                        <b>Exemplo:</b>
+                         Se a galeria tem a forma de um triângulo (3 vértices), basta uma única câmera em qualquer ponto
+                        do triângulo para ver toda a área interna. Se a galeria tem a forma de um quadrilátero (4
+                        vértices), duas câmeras são suficientes, e assim por diante.
+                    </p>
+                </div>
+            </div>
+
+            <div class="explain">
+                <div style="padding: 10px; flex: 1;">
+                    <h2>Aplicações:</h2>
+
+                    <p>
+                        De maneira geral, esse problema não se limita apenas a galerias de arte, pode-se citar aplicações em vários campos,
+                        incluindo:
+                    </p>
+                    <li><b>Segurança:</b> (colocação de câmeras de vigilância em edifícios ou áreas abertas).</li>
+                    <li><b>Robótica:</b> (planejamento de rota e posicionamento de sensores).</li>
+                    <li><b>Computação gráfica:</b> (cálculo de visibilidade em modelos tridimensionais).</li>
+                    <p>
+                        Visto isso, percebe-se que o problema da galeria de arte possui implicações práticas em diversas áreas de estudo e
+                        aplicações reais e com isso seu estudo é interessante para entender mais tanto sobre geometria computacional quanto desses setores.
+                    </p>
+                </div>
+                <div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Art_gallery_problem.svg/220px-Art_gallery_problem.svg.png" width="320px" alt="Imagem Exemplo">
+                </div>
+            </div>
+
+        </section>
+
+        <section class="animation" id="triangulation">
+            <div style="padding: 10px; flex: 1;">
+                <h2>Triangulação do polígono</h2>
+                    <p>
+                        Nesta etapa, é feita a triangulação do polígono da seguinte maneira, seleciono um vértice i e seus adjacentes i-1 e i+1, 
+                        caso haja giro paea a esquerda de i-1 para i e não tenha vértices dentro do triângulo formado pelos 3 vértices, podemos fazer o corte.
+                        No fim, o polígono original + todas as arestas de corte formam o polígono triangulado. 
+                    </p>
+            </div>
+            <iframe src="triangulation.html" width="80%" height="700px"></iframe>
+        </section>
+
+        <section class="animation" id="coloring">
+            <div style="padding: 10px; flex: 1;">
+                <h2>3-Coloração dos vértices</h2>
+                <p>
+                    Nesta segunda, utilizamos a triangulação realizada para facilitar a 3-coloração do polígono, de forma, ao selecionar um triângulo
+                    arbitrário, basta colorir cada vértice com uma cor diferente. Assim, para os triângulos seguintes teremos apenas que preencher com a cor
+                    faltante, aplicando essa lógica até que todos os vértices possuam uma cor.
+                </p>
+            </div>
+            <iframe src="coloring.html" width="80%" height="700px"></iframe>
+        </section>
+
+        <section class="animation" id="cameras">
+            <div style="padding: 10px; flex: 1;">
+                <h2>Onde as câmeras devem ficar posicionadas</h2>
+                <p>
+                    Por fim, na última etapa, vamos contar a quantidade de vértices que cada cor possui e selecionar a cor com a menor quantidade.
+                    Dessa forma, conseguimos cobrir a área de todos os triângulos, e com isso, a área de todo o polígono utilizando apenas os vértices da cor selecionada.
+                </p>
+            </div>
+            <iframe src="cameras.html" width="80%" height="700px"></iframe>
+        </section>
+    </main>
+
+    <footer>
+        <p>Trabalho da disciplina de Algoritmos 2 realizado pelos alunos: <br><br>
+            Kayque Meira Siqueira, Rubens da Cunha Castro e Mateus Augusto Gomes <br><br>
+            Ciência da Computação - UFMG.
+        </p>
+        <div class="footer-img-container">
+            <img src="./ufmg.png" width="200px" alt="Imagem da UFMG">
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
