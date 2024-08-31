@@ -3,4 +3,4 @@ Aplicação de algoritmos relacionados a geometria computacional como entrega do
 
 Para acessar a página do GitHub Pages usar o link:
 
-https://kayross54x.github.io/ArtGalery/
+https://mateusg2022.github.io/Polygon/
